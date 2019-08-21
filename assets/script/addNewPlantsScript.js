@@ -1,11 +1,11 @@
 $('document').ready(function(){
 // FOLIAGE PLANT TYPE ASK
 
-$('div#addnewfoliage').on('click', function(){
+$('button#addnewfoliage').on('click', function(){
     $(this).next().show();
     $('#askName').change(function(){
         $('#searchbar').show();
-    });
+    
     $.ajax({
         url: 'ptList.json',
         type: 'get',
@@ -27,20 +27,21 @@ $('div#addnewfoliage').on('click', function(){
                 // var sn = opt.data('sn');
             }
         } //end of success
-    });
+    }); //end ajax
+        });
     $('#ifFoliage').click(function(){
         $('#uploadF').show();
     }); 
-});
-});
+        });
+
 
 
 // SUCCULENT PLANT TYPE ASK
-    $('div#addnewSucculent').on('click', function(){
+    $('button#addnewSucculent').on('click', function(){
         $(this).next().show();
         $('#askSucculentName').change(function(){
             $('#searchbarSucculent').show();
-        });
+        
         $.ajax({
             url: 'ptList.json',
 			type: 'get',
@@ -62,9 +63,11 @@ $('div#addnewfoliage').on('click', function(){
                 }
             }
         });
+        });
         $('#ifSucculent').click(function(){
             $('#uploadSucculentPhoto').show();
 
     });
+});
 });
 

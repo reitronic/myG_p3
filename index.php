@@ -1,5 +1,5 @@
 <?php session_start();
-$_SESSION['anita'] = "Anita";
+$_SESSION['a'] = "Anita";
 
 include 'classes/foliage.class.php';
 include 'classes/succulent.class.php';
@@ -34,8 +34,8 @@ include 'classes/succulent.class.php';
 <!-- CONTENT ADD NEW FOLIAGE -->
 <div class="container">
     <div class="row">
-        <div class="col-md-6 border border-success">
-        <div id="addnewfoliage" class="d-block display-3  text-bold">Add a foliage!</div>
+        <div class="col-md-6 border border-success justify-content-center">
+        <button id="addnewfoliage" class="display-1 btn btn-success  text-bold">Add a foliage!</button>
          <div id="fForm" class="hide">
             <form method="post" action="dhAdd3.php" enctype="multipart/form-data">
                 <p class="d-block display-5 text-center text-success">Name your foliage!</p>
@@ -103,8 +103,7 @@ include 'classes/succulent.class.php';
 <!-- SUCCULENT CHOICE -->
 
 <div class="col-md-6 border border-success">
-
-    <div id="addnewSucculent" class="d-block display-3  text-bold">Add a Succulent!</div>
+    <button id="addnewSucculent" class="display-1 btn btn-success  text-bold">Add a Succulent!</button>
          <div id="sForm" class="hide">
             <form method="post" action="dhAddSucculent.php" enctype="multipart/form-data">
            
