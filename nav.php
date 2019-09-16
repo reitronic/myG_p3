@@ -6,10 +6,10 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav text-success">
-      <a class="nav-item text-success nav-link active " href="index.php">Add a Plant<span class="sr-only">Home</span></a>
+      <a class="nav-item text-success nav-link active " href="index.php">Add a Homie<span class="sr-only">Home</span></a>
       <a class="nav-item text-success nav-link" href="dashboard.php">Who to Water</a>
-      <a class="nav-item text-success nav-link" href="allFoliage.php">See Your Foliage</a>
-      <a class="nav-item text-success nav-link" href="allSucculents.php">See Your Succulents</a>
+      <a class="nav-item text-success nav-link" href="allFoliage.php">Foliage Gang Gang</a>
+      <a class="nav-item text-success nav-link" href="allSucculents.php">Succulents Gang Gang</a>
 </nav>
 <div class= "nav-item text-success text-center">
         <?php 

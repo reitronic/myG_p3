@@ -35,9 +35,9 @@ include 'classes/succulent.class.php';
 <div class="container">
     <div class="row">
         <div class="col-md-6 border border-success justify-content-center">
-        <button id="addnewfoliage" class="display-1 btn btn-success  text-bold">Add a foliage!</button>
+        <button id="addnewfoliage" class="display-1 btn btn-success text-bold">Add a foliage!</button>
          <div id="fForm" class="hide">
-            <form method="post" action="dhAdd3.php" enctype="multipart/form-data">
+            <form method="post" action="dhAddFoliage.php" enctype="multipart/form-data">
                 <p class="d-block display-5 text-center text-success">Name your foliage!</p>
                 <input class="form-control form-control-lg display-5 text-center font-italics" required placeholder="Mos" type="text" id="askName" onkeyup="nameDis()" name="pnn">
                         <div id="searchbar" class="hide">
@@ -64,9 +64,9 @@ include 'classes/succulent.class.php';
                                             </select>
                                             <br>
             
-                                <input type="radio" name="wyn" value="no" disabled>No, I haven't!<br>
+                                <input type="radio" name="wyn" value="no">No, I haven't!<br>
                                     <label>Select day this week you want to start watering this plant:</label>
-                                        <select type="select" name="wsd" id="nwday" disabled>
+                                        <select type="select" name="wsd" id="nwday">
                                             <option disabled selected value> -- Select Day -- </option>
                                                 <?php
                                                     for ( $xt = 0; $xt <7 ; $xt++ ){

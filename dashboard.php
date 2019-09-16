@@ -17,6 +17,7 @@ include 'classes/succulent.class.php';
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/style/style.css">
 
+
     <title>My G* Plant Planner Buddy</title>
 </head>
 <!--MAIN DASHBOARD -->
@@ -53,21 +54,21 @@ include 'classes/succulent.class.php';
 <!-- TODAY DASHBOARD (AJAX dynamic display)-->
 <div class="container-fluid" id="mainDisplay">
 
-<div class="container-fluid">
-            <h1 class="display-3 text-success">Today To Do</h1>
-                <div class="row" id='todayDisplay'>
-                
-                
-            </div>
-</div>
-            <div class="container-fluid">
-            <h1 class="display-3">Past Due!</h1>
-                    <div class="row" id='pastDueDisplay'>
+    <div class="container-fluid">
+                <h1 class="display-3 text-success">Today To Do</h1>
+                    <div class="row" id='todayDisplay'>
                     
-
-                    </div>
+                    
+                </div>
+    </div>
+    <div class="container-fluid">
+    <h1 class="display-3">Past Due!</h1>
+            <div class="row" id='pastDueDisplay'>
+            
 
             </div>
+
+    </div>
 
             <div class="container-fluid ">
             <h1 class="display-3">Completed Today</h1>

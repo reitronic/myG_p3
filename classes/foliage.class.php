@@ -6,24 +6,23 @@ class Foliage {
     public $uid;
     public $pnn;
     public $pv;
+    public $fq = '7 days';
+    public $nwd;
     public $lwd;
-    public $fq = 7;
     public $wsd;
-    public $wyn;
     public $addedOn;
     public $pt = Foliage;
     public $img;
 
 
-    public function __construct($uid, $pnn, $pv, $wsd, $wyn, $addedOn, $nwd, $lwd, $img){
+    public function __construct($uid, $pnn, $pv, $nwd, $lwd, $wsd, $addedOn, $img){
         $this->uid = $uid;
         $this->pnn = $pnn;
         $this->pv = $pv;
-        $this->wsd = $wsd;
-        $this->wyn = $wyn;
-        $this->addedOn = $addedOn;
         $this->nwd = $nwd;
         $this->lwd = $lwd;
+        $this->wsd = $wsd;
+        $this->addedOn = $addedOn;
         $this->img = $img;
     }
     

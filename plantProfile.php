@@ -35,8 +35,8 @@
         
 <!-- PLANT PROFILE -->
     <?php
-            $dfoliage = file_get_contents("anitaAllFoliage.json");
-            $dfoliage = json_decode( $dfoliage, true );
+            $plantdata = file_get_contents("anitaAllFoliage.json");
+            $plantdata = json_decode( $plantdata, true );
             
             // $_SESSION['counter']; //counter
 
@@ -59,21 +59,42 @@
                                 <li class="list-group-item">Date Added: '.$_SESSION['addedOn'].'</li>
                             </ul>
                         </div>
-                        <a href="dhFoliageDelete.php?'.$cn['uid'].'" class="btn btn-outline-warning disabled">Delete</a>
+
+                        <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#deleteplant'.$_SESSION['uid'].'">
+                        Delete This Plant
+                        </button>
+                        <div class="modal fade" id="deleteplant'.$_SESSION['uid'].'" tabindex="-1" role="dialog" aria-labelledby="deleteplantLabel'.$_SESSION['uid'].'" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="deleteplantLabel'.$_SESSION['uid'].'">Delete?</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              Are you sure you want to delete this plant?
+                            </div>
+                            <div class="modal-footer">
+                              <a href="allFoliage.php" class="btn btn-btn-outline-secondary">Nah</a>
+                              <a href="dhFoliageDelete.php?'.$_SESSION['uid'].'" class="btn btn-outline-warning">Yes, delete!</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+
+                        
                     </div>
                     </div>';
-        };
+                };
     ?>
-<!--    <a href="dhPlantDelete.php?'.$_SESSION['uid'].'" class="btn btn-primary">Delete</a> -->
-                </div>
+    </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        
-        <script src="assets/script/aNpt.js"></script>
-        <script src="assets/script/script.js"></script>
-        <script src="assets/script/dashboard.js"></script>
     </body>
 </html>

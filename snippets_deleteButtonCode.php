@@ -35,29 +35,17 @@ include 'classes/foliage.class.php';
 <h1 class="display-2 text-success">Foliage</h1>
             <div class="container-fluid d-flex justify-content-center">
             <div class="row">
+
+            <!-- DYNAMIC DELETE BUTTON FOR ALL PLANTS IN DATABASE -->
                                 <?php 
                                 $plantdata = file_get_contents("anitaAllFoliage.json");
                                 $plantdata = json_decode( $plantdata, true );
 
-                                $x = count(array_keys($plantdata));
 
-                                echo '<h3 class="text-success">You currently have '.$x.' foliage plants.</h3>';
                                 
                                 foreach ( $plantdata as $i => $tp ){
-                                    echo '<div class="card plantEach" id="'.$tp['uid'].'"> 
-                                            <div class="card float-left" style="width: 20rem;">
-                                            <img src="'.$tp['img'].'" class="card-img-top">
-                                            <div class="card-body">
-                                            <h4 class="card-title">'.$tp['pnn'].'</h4>
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item">Next Watering Date On: '.$tp['nwd'].'</li>
-                                                    <li class="list-group-item">Plant Variety: '.$tp['pv'].'</li>
-                                                    <li class="list-group-item">Plant Type: Foliage </li>
-                                                    <li class="list-group-item">Date Added: '.$tp['addedOn'].'</li>
-                                                </ul><br>
-
-
-                                                <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#deleteplant'.$tp["uid"].'">
+                                    echo '
+                                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#deleteplant'.$tp["uid"].'">
                                                 Delete This Plant
                                                 </button>
                                                 
@@ -76,15 +64,11 @@ include 'classes/foliage.class.php';
                                                       </div>
                                                       <div class="modal-footer">
                                                         <a href="allFoliage.php" class="btn btn-btn-outline-secondary">Nah</a>
-                                                        <a href="dhFoliageDelete.php?'.$tp['uid'].'" class="btn btn-outline-warning">Yes, delete!</a>
+                                                        <a href="dhFoliageDelete.php?'.$tp['uid'].'" class="btn btn-warning">Yes, delete!</a>
                                                       </div>
                                                     </div>
                                                   </div>
                                                 </div>
-
-                                        </div>
-                                        </div>
-                                        </div>
                                         ';
                                     }
                             ;?>
