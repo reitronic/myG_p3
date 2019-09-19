@@ -1,9 +1,8 @@
 <?php session_start();
-    $_SESSION['a'] = $a = "Anita";
-    include 'classes/foliage.class.php';
-    include 'classes/succulent.class.php';
-    $uid = $_SERVER['QUERY_STRING'] = $_SESSION['uid'];
+  $_SESSION['a'] = $a = "Anita";
+  include 'classes/foliage.class.php';
 
+  $_SESSION['uid'] = $_SERVER['QUERY_STRING'];
 ?>
 
 <!doctype html>
@@ -23,23 +22,15 @@
     </head>
 <!--HEADER-->
 <body>
-        <header>
-        <div id="titleBlock d-flex justify-content-center">
-            <h1 class="display-3 text-success text-md-center">My G* </h1>
-            <h2 class="display-5 text-success text-md-center">Plant Planner Buddy</h2>
-        </div>
-        <?php require_once "nav.php"; ?>
-        </header>
+    <header>
+      <?php require_once "nav.php"; ?>
+    </header>
 <!-- END HEADER -->
-
-        
 <!-- PLANT PROFILE -->
     <?php
-            $plantdata = file_get_contents("anitaAllFoliage.json");
-            $plantdata = json_decode( $plantdata, true );
-            
-            // $_SESSION['counter']; //counter
-
+        // $plantdata = file_get_contents("anitaAllFoliage.json");
+        // $plantdata = json_decode( $plantdata, true );
+        
             if(isset($_SESSION['uid'])){
                 echo '
                 <div class="container justify-content-center">
@@ -59,9 +50,11 @@
                                 <li class="list-group-item">Date Added: '.$_SESSION['addedOn'].'</li>
                             </ul>
                         </div>
-
+                        <a type="button" class="btn btn-outline-primary" href="plantEdit.php?'.$_SESSION['uid'].'">
+                        Edit '.$_SESSION['pnn'].'
+                        </a>
                         <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#deleteplant'.$_SESSION['uid'].'">
-                        Delete This Plant
+                        Delete '.$_SESSION['pnn'].'
                         </button>
                         <div class="modal fade" id="deleteplant'.$_SESSION['uid'].'" tabindex="-1" role="dialog" aria-labelledby="deleteplantLabel'.$_SESSION['uid'].'" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -82,10 +75,6 @@
                           </div>
                         </div>
                       </div>
-
-
-
-                        
                     </div>
                     </div>';
                 };

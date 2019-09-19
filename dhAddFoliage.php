@@ -5,11 +5,8 @@ include 'classes/foliage.class.php';
 $plantdata = file_get_contents('anitaAllFoliage.json');
 $plantdata = json_decode( $plantdata, true );
 
-
-
 $plantdata[$tp] = $tp = $_POST;
 $tp++;
-
 
 $_SESSION['wyn'] = $wyn = $_POST['wyn'];
 $_SESSION['pnn'] = $pnn = $_POST['pnn']; //nickname

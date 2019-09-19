@@ -72,13 +72,16 @@ $('document').ready(function () {
                                 <input type="submit" name="submit" value="Water ${pnn}" onclick="waterThisNow()" class="odbtn btn btn-success text-dark">
                             </form></div>`
                         );
-                    } else if ((lwdUD <= todayUD || lwd == '') && nwdUD > todayUD) { //upcoming plants to water / have watered already
+                    } else if ((lwdUD <= todayUD || lwd == '') && nwdUD > todayUD) {
+                        
+                        //upcoming plants to water / have watered already
                         $('#upcomingDisplay').append('<div class="dl" id="' + uid + '"></div>');
                         $('#' + uid + '').append(
                             `<div class="card" style="width: 18rem;">
                                 <div class="card-body">
                                 <img src="${img}" class="card-img">
                                     <p class="card-text">${pnn}: the ${pv}</p>
+                                    <p class="card-text font-weight-bold">Next Watering Date: ${nwd}</p>
                                     <p>${pt}</p>
                                     </div>
                                 </div>`

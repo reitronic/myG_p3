@@ -23,15 +23,12 @@ include 'classes/succulent.class.php';
 <!--HEADER-->
     <body>
     <header>
-    <div id="titleBlock justify-content-center">
-            <h1 class="display-1 text-center text-success">My G* </h1>
-            <p class="display-4 text-center text-success">Plant Planner Buddy</p>
-        </div>
     <?php require_once "nav.php"; ?>
         
 <!-- END HEADER -->
     </header>
 <!-- CONTENT ADD NEW FOLIAGE -->
+</div>
 <div class="container">
     <div class="row">
         <div class="col-md-6 border border-success justify-content-center">
