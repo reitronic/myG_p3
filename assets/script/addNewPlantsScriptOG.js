@@ -27,8 +27,7 @@ $('button#addnewfoliage').on('click', function(){
             } //end of success
         }) //end ajax
     });
-    $('#ifFoliage').click(function () {
-
+    $('#ifFoliage').click(function(){
         $('#uploadF').show();
     }); 
 });
@@ -43,7 +42,7 @@ $('button#addnewfoliage').on('click', function(){
         
         $.ajax({
             url: 'ptList.json',
-			type: 'GET',
+			type: 'get',
 			dataType: 'JSON',
 			cache: false,
 			error: function(data){

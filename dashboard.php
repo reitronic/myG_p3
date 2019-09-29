@@ -7,7 +7,6 @@ include 'classes/succulent.class.php';
 
 <!doctype html>
 <html lang="en">
-
     <head>
         <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
         <!-- Required meta tags -->
@@ -19,8 +18,6 @@ include 'classes/succulent.class.php';
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
               crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="assets/style/style.css">
-
-
         <title>My G* Plant Planner Buddy</title>
     </head>
     <!--MAIN DASHBOARD -->
@@ -49,48 +46,32 @@ include 'classes/succulent.class.php';
         <!-- TODAY DASHBOARD (AJAX dynamic display)-->
         <div class="container-fluid" id="mainDisplay">
             <!-- <div class="container-fluid"> -->
-                <h1 class="display-3 text-success">Today To Do</h1>
-                <div class="row" id='todayDisplay'>
+            <h1 class="display-4 text-success">Today To Do</h1>
+            <div class="row" id='todayDisplay'>
 
-
-                </div>
+            </div>
             <!-- </div> -->
-            <div class="container-fluid">
-                <h1 class="display-3">Past Due!</h1>
-                <div class="row" id='pastDueDisplay'>
-
-
-                </div>
+            <!-- <div class="container-fluid"> -->
+            <h1 class="display-4">Past Due!</h1>
+            <div class="row" id='pastDueDisplay'>
 
             </div>
+        <!-- </div> -->
+        <!-- <div class="container-fluid "> -->
+            <h1 class="display-4">Completed Today</h1>
+            <div class="row" id="todayCompletedDisplay">
 
-            <div class="container-fluid ">
-                <h1 class="display-3">Completed Today</h1>
-                <div class="row" id="todayCompletedDisplay">
-
-
-                </div>
             </div>
+        <!-- </div>
+        <div class="container-fluid"> -->
+            <h1 class="display-4">Just Chillin</h1>
+            <div class="row" id='upcomingDisplay'>
 
-            <div class="container-fluid">
-                <h1 class="display-3">Just Chillin</h1>
-                <div class="row" id='upcomingDisplay'>
-
-
-
-
-                </div>
             </div>
-
-
-
+        <!-- </div> -->
         </div>
 
 
-        <!-- END OF DASHBOARD -->
-
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
                 integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -101,5 +82,4 @@ include 'classes/succulent.class.php';
 
         <script src="assets/script/dashboard.js"></script>
     </body>
-
 </html>

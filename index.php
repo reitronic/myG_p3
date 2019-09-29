@@ -37,46 +37,44 @@ include 'classes/succulent.class.php';
             <form method="post" action="dhAddFoliage.php" enctype="multipart/form-data">
                 <p class="d-block display-5 text-center text-success">Name your foliage!</p>
                 <input class="form-control form-control-lg display-5 text-center font-italics" required placeholder="Mos" type="text" id="askName" onkeyup="nameDis()" name="pnn">
-                        <div id="searchbar" class="hide">
-                            <input id="fcn" type="text" class="plantlist form-control text-center form-control-lg" required name="plantvarietyF" list="fList" placeholder="Find Your Foliage!">
-                            <datalist id="fList"></datalist>
+                <div id="searchbar" class="hide">
+                    <input id="fcn" type="text" class="plantlist form-control text-center form-control-lg" required name="plantvarietyF" list="fList" placeholder="Find Your Foliage!">
+                    <datalist id="fList"></datalist>
                         
 
             <div id="ifFoliage" class="container">
             <h3 class="text-success">Have you watered your <span class="text-success text-center font-weight-bold pnnDisplay"></span> plant in the past 7 days?</h3>
-                            <input type="radio" name="wyn" value="yes">Yes, I have!<br>
-                                    <label>Select the day you last watered this plant:</label>
-                                            <select type="select" name="lwd">
-                                            <option disabled selected value> -- Select Day -- </option>
-                                                <?php
-                                                    for ( $xb = 0; $xb <7 ; $xb++ ){
-                                                        $td = strtotime('today');
-                                                        $md = '-'.$xb.'days';
-                                                        $md = ''.$md.'';
-                                                        $dy = strtotime( $md , $td);
-                                                        $sd = date( "D m/d/Y" , $dy );
-                                                        echo '<option value = "'.$sd.'">'.$sd.'</option>';
-                                                    };
-                                                ?>
-                                            </select>
-                                            <br>
-            
-                                <input type="radio" name="wyn" value="no">No, I haven't!<br>
-                                    <label>Select day this week you want to start watering this plant:</label>
-                                        <select type="select" name="wsd" id="nwday">
-                                            <option disabled selected value> -- Select Day -- </option>
-                                                <?php
-                                                    for ( $xt = 0; $xt <7 ; $xt++ ){
-                                                        $td = strtotime('today');
-                                                        $md = '+'.$xt.'days';
-                                                        $md = ''.$md.'';
-                                                        $dy = strtotime( $md , $td);
-                                                        $sd = date( "D m/d/Y" , $dy );
-                                                        echo '<option value = "'.$sd.'">'.$sd.'</option>';
-                                                    };
-                                                ?>
-                                        </select>
-    
+                <input type="radio" name="wyn" class="wquestion" value="yes">Yes, I have!<br>
+                    <label>Select the day you last watered this plant:</label>
+                        <select type="select" name="lwd">
+                        <option disabled selected value> -- Select Day -- </option>
+                            <?php
+                                for ( $xb = 0; $xb <7 ; $xb++ ){
+                                    $td = strtotime('today');
+                                    $md = '-'.$xb.'days';
+                                    $md = ''.$md.'';
+                                    $dy = strtotime( $md , $td);
+                                    $sd = date( "D m/d/Y" , $dy );
+                                       echo '<option value = "'.$sd.'">'.$sd.'</option>';
+                                };
+                            ?>
+                        </select>
+                        <br>
+                        <input type="radio" name="wyn" class="wquestion" value="no">No, I haven't!<br>
+                            <label>Select day this week you want to start watering this plant:</label>
+                                <select type="select" name="wsd" id="nwday">
+                                    <option disabled selected value> -- Select Day -- </option>
+                                        <?php
+                                            for ( $xt = 0; $xt <7 ; $xt++ ){
+                                                $td = strtotime('today');
+                                                $md = '+'.$xt.'days';
+                                                $md = ''.$md.'';
+                                                $dy = strtotime( $md , $td);
+                                                $sd = date( "D m/d/Y" , $dy );
+                                                echo '<option value = "'.$sd.'">'.$sd.'</option>';
+                                            };
+                                        ?>
+                                </select>
                         </div> 
                         </div>
                         <!-- end of if foiliage question -->
