@@ -16,11 +16,11 @@ $('document').ready(function () {
                     var pt = value.pt;
                     var pnn = value.pnn;
                     var pv = value.pv;
-                    var uid = value.uid;
+                    var plantid = index;
                     var img = value.img;
                     var lwd = value.lwd;
                     var nwd = value.nwd
-                    // console.log(value.lwd);
+                    console.log(plantid);
                     var lwdDate = new Date(lwd);
                     var lwdUD = lwdDate.setHours(0, 0, 0, 0);//date ob
                     // console.log(lwdUD);
@@ -31,56 +31,62 @@ $('document').ready(function () {
                     var todayUD = todayDate.setHours(0, 0, 0, 0);
                     if ((lwdUD < todayUD || lwd == '') && nwdUD == todayUD) {
                         $('#todayDisplay').append(
-                            '<div class="dl" id="' + uid + '"></div>');
-                        $('#' + uid + '').append(
+                            '<div class="dl" id="' + plantid + '"></div>');
+                        $('#' + plantid + '').append(
                             `<div class="card mb-3 d-flex">
                 
                             <form method="post" enctype="multipart/form-data">
-                                <input type="hidden" name="uid" value="${uid}">
+                                <input type="hidden" name="plantid" value="${plantid}">
                                 <input type="hidden" name="pnn" value="${pnn}">
                                 <input type="hidden" name="ontime" value=true>
-                                <input type="submit" name="submit" value="Water ${pnn}" onclick="waterThisNow()" class="odbtn btn btn-success text-dark">
+                                <input type="submit" name="submit" value="Water ${pnn}" onclick="waterThisNow()" class="odbtn">
                                 </form>
-                            <img src="${img}" class="plantpic">
+                            <img src="${img}" class="plant-pic">
                             </div>
                             </div>`
                         );
                     } else if (lwdUD == todayUD) { //then this is completed today
-                        $('#todayCompletedDisplay').append('<div class="dl" id="' + uid + '"></div>');
-                        $('#' + uid + '').append(
-                            `<div class="card" style="width: 18rem;">
-                                    <img src="${img}" class="card-img">
-                                    <p class="card-text">${pnn}</p>
+                        $('#todayCompletedDisplay').append('<div class="dl" id="' + plantid + '"></div>');
+                        $('#' + plantid + '').append(
+                            `<div class="card mb-3 d-flex">
+                            <p class="card-text">${pnn}</p>
+                            <img src="${img}" class="plant-pic">
+                            
+                            <p class="card-text">Next Watering Date: ${nwd}</p>
+                            <p class="card-text">Last Watered On: ${lwd}</p>
+                            </div>
                             </div>`
                         );
                     } else if (nwdUD < todayUD) { //then this is past due
-                        $('#pastDueDisplay').append('<div class="dl" id="' + uid + '"></div>');
-                        $('#' + uid + '').append(
+                        $('#pastDueDisplay').append('<div class="dl" id="' + plantid + '"></div>');
+                        $('#' + plantid + '').append(
                             `<div class="card mb-3 d-flex">
                 
                             <form method="post" enctype="multipart/form-data">
-                                <input type="hidden" name="uid" value="${uid}">
+                                <input type="hidden" name="plantid" value="${plantid}">
                                 <input type="hidden" name="pnn" value="${pnn}">
                                 <input type="hidden" name="ontime" value=false>
-                                <input type="submit" name="submit" value="Water ${pnn}" onclick="waterThisNow()" class="odbtn btn btn-danger text-dark">
+                                <input type="submit" name="submit" value="Water ${pnn}" onclick="waterThisNow()" class="odbtn">
                                 </form>
-                            <img src="${img}" class="plantpic">
+                            <img src="${img}" class="plant-pic">
                             </div>
                             </div>`
                         );
                     } else if ((lwdUD <= todayUD || lwd == '') && nwdUD > todayUD) {
                         //upcoming plants to water / have watered already
-                        $('#upcomingDisplay').append('<div class="dl" id="' + uid + '"></div>');
-                        $('#' + uid + '').append(
-                            `<div class="card" style="width: 18rem;">
-                                <div class="card-body">
-                                    <img src="${img}" class="card-img">
-                                        <p class="card-text">${pnn}</p>
-                                        <p class="card-text font-weight-bold">Next Watering Date: ${nwd}</p>
-                                </div>
+                        $('#upcomingDisplay').append('<div class="dl" id="' + plantid + '"></div>');
+                        $('#' + plantid + '').append(
+                            `<div class="card mb-3 d-flex">
+                            <p class="card-text">${pnn}</p>
+                            <img src="${img}" class="plant-pic">
+                           
+                            <p class="card-text">Next Watering Date: ${nwd}</p>
+                            <p class="card-text">Last Watered On: ${lwd}</p>
+                            </div>
                             </div>`
                         );
                     };
+                    showPlants();
                     waterThisNow();
                 })//end of conditional statement
             } //end of success call
@@ -96,22 +102,30 @@ $('document').ready(function () {
             var formData = new FormData($(this)[0]);
             formData.append('ts', nowtime);
             // console.log(formData);
-                $.ajax({
-                    url: 'dhDoneDashboard.php',
-                    type: 'POST',
-                    data: formData,
-                    cache: false,
-                    contentType: false,
-                    processData: false,
-                    success: function () {
-                        console.log('yes!');
-                        displayDashboard();
-                    }
-                });//end of ajax call */
-                e.preventDefault();
-                e.stopImmediatePropagation();
-                e.stopPropagation();
+            $.ajax({
+                url: 'dhDoneDashboard.php',
+                type: 'POST',
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function () {
+                    console.log('ajax complete');
+                    displayDashboard();
+                }
+            });//end of ajax call */
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            e.stopPropagation();
         })
     }//end of checkbox function
+
+function showPlants() {
+    $('.dheader').click(function (ev) {
+        ev.stopImmediatePropagation();
+        ev.stopPropagation();
+            $(this).next().slideToggle('slow');
+        })
+    }
 })
 

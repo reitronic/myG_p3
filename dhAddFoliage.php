@@ -1,12 +1,23 @@
 <?php session_start();
-$_SESSION['a'] = $a = 'Anita';
 include 'classes/foliage.class.php';
 
 $plantdata = file_get_contents('anitaAllFoliage.json');
 $plantdata = json_decode( $plantdata, true );
 
-$plantdata[$tp] = $tp = $_POST;
-$tp++;
+// var_dump( $_POST);
+//post = ["pnn"]=> string(5) "Bjork" ["plantvarietyF"]=> string(10) "Corn Plant" ["wyn"]=> string(2) "no" ["wsd"]=> string(14) "Wed 10/02/2019"
+
+
+$index= count( $plantdata );
+
+$index++;
+
+$plantid = array_keys($plantdata);
+// var_dump(array_keys($plantdata));
+
+$plantid = max($plantid) + 1;
+// var_dump( $plantid );
+// var_dump( $uid );
 
 $_SESSION['wyn'] = $wyn = $_POST['wyn'];
 $_SESSION['pnn'] = $pnn = $_POST['pnn']; //nickname
@@ -15,9 +26,8 @@ $_SESSION['addedOn'] = $addedOn = date('D m/d/Y');
 
 // IMAGE
 $tmp = $_FILES['photo']['tmp_name']; // upload file capture
-$filename = str_replace(' ', '', $pnn);
-mkdir ('users/'.$a.'/'.$filename);
-$img = 'users/'.$a.'/'.$filename.'/'.$pnn.'.jpg';
+mkdir ('yourplants/'.$plantid);
+$img = 'yourplants/'.$plantid.'/mainpic.jpg';
 move_uploaded_file( $tmp, $img );
 $_SESSION['img'] = $img;
 
@@ -36,27 +46,29 @@ if ($wyn == 'yes' && isset($_POST['lwd'])){
     $_SESSION['wsd'] = $wsd = $lwd;
     $nwd = nextWaterDate( $lwd );
     $_SESSION['nwd'] = $nwd;
-    } else {
+} else {
     $_SESSION['wsd'] = $wsd = $_POST['wsd'];
     $_SESSION['nwd'] = $nwd = $wsd;
     $_SESSION['lwd'] = $lwd = '';
-}
-
-function genUid( $pnn ){
-    $nospace = str_replace(' ', '', $pnn);
-    return 'af'.$nospace;
 };
 
-$_SESSION['uid'] = $uid = genUid( $pnn );
-$tp = new Foliage ($uid, $pnn, $pv, $nwd, $lwd, $wsd, $addedOn, $img);
+$_SESSION['plantid'] = $plantid;
 
-$_SESSION['af'] = $tp;
-// var_dump( $tp );
+$tp = new Foliage ($pnn, $pv, $nwd, $lwd, $wsd, $addedOn, $img);
 
+// $plantdata[$uid] = $tp;
 $plantdata[] = $tp;
-$plantdata = json_encode($plantdata, JSON_FORCE_OBJECT);
+// var_dump( $plantdata[$uid] );
+// echo '<br>';
+// echo '<br>';
+// var_dump( $tp );
+// echo '<br>';
+// echo '<br>';
+// var_dump( $uid );
+
+$plantdata = json_encode($plantdata);
 file_put_contents('anitaAllFoliage.json', $plantdata);
 
-// var_dump($as);
-header('location:plantProfile.php?'.$uid);
+
+header('location:plantProfile.php?'.$_SESSION['plantid']);
 ?>

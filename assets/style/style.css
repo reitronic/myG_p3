@@ -1,20 +1,309 @@
-.show{
-    display: block;
-}
+@import url('https://fonts.googleapis.com/css?family=Cambay:400,400i,700|Cormorant+Infant:300,300i,400,400i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i&display=swap');
+/* descriptions/body >> font-family: 'Cambay', sans-serif;*/
+/* headings and titles >> font-family: 'Montserrat', sans-serif; */
 
-.hide{
-    display: none;
-}
-
-.plantlist{
-    width: 100%;
-}
+/* green- dark : rgb(10, 96, 46); 0A602E*/
+/* green- lite : rgb(32, 160, 56); 	20A038*/
+/* blue : rgb(8, 110, 219);  	086EDB*/
+/* yello: rgb(255, 252, 36); 	FFFC24*/
+/* grey-white: rgb(228, 229, 221) ; #E4E5DD*/
 
 .todaydate{
     font-size: 2em;
 }
 
-.plantpic{
-    width: 150px;
+/* above are old classes -- look thru before delete */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Cambay', sans-serif;
 }
 
+html,
+body {
+    box-sizing: border-box;
+    background: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: .2rem;
+    text-transform: uppercase;
+    color: rgb(10, 96, 46);
+}
+
+a {
+    text-decoration: none;
+}
+
+.hide {
+    display: none;
+}
+
+.dheader {
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: rgb(10, 96, 46);
+    text-align: center;
+    background-color: rgba(10, 96, 46, 0.5);
+    margin-bottom: 20px;
+}
+
+.dheader:hover {
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #E4E5DD;
+    text-align: center;
+    background-color: rgb(10, 96, 46);
+    margin-bottom: 20px;
+}
+
+.container-fluid{
+    padding: 0;
+}
+/* ADD NEW PG */
+#addnewfoliage {
+    margin: 0 auto;
+}
+
+.formLine {
+    font-style: bold;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="file"] {
+    width: 100%;
+    font-style: italic;
+    text-align: center;
+    vertical-align: center;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    border-style: inset;
+    border-color: rgba(32, 134, 75, 0.7);
+}
+
+input[type="file"]{
+    cursor: pointer;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+input[type="radio"] {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.des-label {
+    font-style: italic;
+}
+
+.addBtn {
+    display: table-cell;
+    cursor: pointer;
+    height: 150px;
+    width: 250px;
+    background-color: rgb(32, 134, 75);
+    border-radius: 15px;
+    font-size: 2rem;
+    vertical-align:middle;
+    text-align:center;
+    margin: 10px;
+    color: whitesmoke;
+}
+
+.addBtn:hover{
+    background-color: whitesmoke;
+    border: 5px solid  rgb(32, 134, 75);
+    color:  rgb(32, 134, 75);
+}
+
+/* ALL PLANTS */
+.counter {
+    font-size: 1.7rem;
+    color: rgb(10, 96, 46);
+}
+
+.plantEach {
+    width: 20rem;
+}
+
+.plant-prof {
+    width: 300px;
+    height: 300px;
+    background-size: contain;
+    background-position: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+
+input.update-btn, div.update-btn {
+    background-color:rgb(32, 134, 75);
+    color:  whitesmoke;
+    padding: 4px;
+    width: 100%;
+    border: none;
+    text-decoration: none;
+}
+
+.edit-btn {
+    background-color:rgb(32, 134, 75);
+    color:  whitesmoke;
+    padding: 4px;
+    width: 100%;
+    border: none;
+    text-decoration: none;
+}
+.edit-btn:hover {
+    background-color:rgba(32, 134, 75, 0.3);
+    color: rgb(32, 134, 75);
+    padding: 4px;
+    width: 100%;
+    border: none;
+    text-decoration: none;
+}
+
+a#ud .update-btn:hover {
+    background-color:rgba(32, 134, 75, 0.5); 
+    color:rgb(32, 134, 75); 
+    padding: 4px;
+    width: 100%;
+    border: none;
+    text-decoration: none;
+}
+
+input.update-btn:hover{
+    background-color:rgba(32, 134, 75, 0.5); 
+    color:rgb(32, 134, 75); 
+    padding: 4px;
+    width: 100%;
+    border: none;
+    text-decoration: none;
+}
+
+a.updateMsg {
+    font-size: 2rem;
+    color:rgb(32, 134, 75);
+    text-align: center;
+}
+
+.n-btn {
+    text-decoration: none;
+    color: #000;
+}
+.n-btn:hover {
+    color: rgb(32, 134, 75);
+    text-decoration: none;
+}
+
+.delete-btn {
+    background-color:rgb(248, 246, 121);
+    color: rgb(32, 134, 75);
+    padding: 4px;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.delete-btn:hover, a.delete-btn:hover {
+    background-color:rgba(248, 246, 121, 0.5);
+    color:  rgba(32, 134, 75, 0.5);
+    padding: 4px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgb(32, 134, 75);
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: rgba(32, 134, 75, 0.5);
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+
+
+
+.odbtn {
+    background-color: rgb(8, 110, 219);
+    border: none;
+    color: rgb(228, 229, 221);
+    width: 100%;
+    height: 80px;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+.odbtn:hover {
+    background-color: rgba(8, 110, 219, 0.5);
+    border: none;
+    color:rgb(8, 110, 219); 
+    width: 100%;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+.update-msg {
+    font-size: 2.4rem;
+    font-style: italic;
+    color: rgb(32, 134, 75);
+    text-transform: uppercase;
+}
+
+.plant-pic{
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.card {
+    border: rgb(32, 160, 56) 1px solid;
+    text-align: center;
+    border-radius: 0;
+    width: 250px;
+}
+
+.emph {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.name-tag {
+    position: relative;
+    z-index: 1;
+    height: 200px;
+    width: 300px;
+    background-image: url(../img/hellotag.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+}
+
+#intro-name {
+    position: absolute;
+    left: 0;
+    top: 45%;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+    
+}

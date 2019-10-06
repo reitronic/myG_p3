@@ -1,9 +1,7 @@
-<?php session_start();
-$_SESSION['a'] = $a = "Anita";
+<?php
 
 class Foliage {
     
-    public $uid;
     public $pnn;
     public $pv;
     public $fq = '7 days';
@@ -15,8 +13,7 @@ class Foliage {
     public $img;
 
 
-    public function __construct($uid, $pnn, $pv, $nwd, $lwd, $wsd, $addedOn, $img){
-        $this->uid = $uid;
+    public function __construct($pnn, $pv, $nwd, $lwd, $wsd, $addedOn, $img){
         $this->pnn = $pnn;
         $this->pv = $pv;
         $this->nwd = $nwd;
