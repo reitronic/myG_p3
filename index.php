@@ -1,4 +1,4 @@
-<?php 
+<?php
 // session_start();
 include ('classes/foliage.class.php');
 include ('classes/succulent.class.php');
@@ -7,18 +7,18 @@ include ('classes/succulent.class.php');
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta http-equiv="cache-control" content="no-cache">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-              crossorigin="anonymous">
-        <!-- custom css -->
-        <link rel="stylesheet" type="text/css" href="assets/style/style.css">
-        <title>"My G"reens</title>
-    </head>
+<head>
+<meta http-equiv="cache-control" content="no-cache">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+crossorigin="anonymous">
+<!-- custom css -->
+<link rel="stylesheet" type="text/css" href="assets/style/style.css">
+<title>"My G"reens || Your Plant Planner Best Bud </title>
+</head>
 
     <body>
         <header>
@@ -27,33 +27,32 @@ include ('classes/succulent.class.php');
         <!-- END HEADER -->
         </header>
         <!-- ADD NEW FOLIAGE -->
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col d-flex align-center">
-                    <a id="addnewfoliage">
-                        <div class="addBtn">Add a foliage!</div>
+                <div class="col d-flex flex-column align-items-center">
+                    <a id="anf" class="add-btn"><p class="add-btn-tag"> " add a foliage ,,</p>
                     </a>
-                    <form id="fForm" class="hide text-center" method="post" action="dhAddFoliage.php"
+                    <div id="f-form" class="hide">
+                    <form class="text-center" method="post" action="dhAddFoliage.php"
                           enctype="multipart/form-data">
-                        <div class="formLine">
+                        <div class="form-group">
                             <label for="pnn">Name your foliage!</label>
                             <br>
                             <input type="text" name="pnn" placeholder="Mos" required>
                         </div>
-                        <div class="formLine">
-
+                        <div class="form-group">
                             <label for="plantvarietyF">Find your foliage variety</label>
                             <input type="text" class="plantlist" required name="plantvarietyF" list="fList"
                                    placeholder="Select from this list">
                             <datalist id="fList"></datalist>
                         </div>
-                        <div class="formLine">
+                        <div id="wq" class="form-group">
                             <label for="wyn">Have you watered your plant in the past 7 days?</label>
                             <br>
                             <input type="radio" name="wyn" value="yes">Yes, I have!<br>
                             <div id="yw" class="hide">
-                                <label>Select the day you last watered this plant:</label>
-                                <select type="select" name="lwd">
+                                <label style="color: rgb(1, 127, 0); text-transform: lowercase;">Select the day you last watered this plant:</label>
+                                <select style="color: rgb(0, 0, 255); text-transform: lowercase;" type="select" name="lwd">
                                     <option disabled selected value> -- Select Day -- </option>
                                     <?php
                     for ( $xb = 0; $xb <7 ; $xb++ ){
@@ -70,8 +69,8 @@ include ('classes/succulent.class.php');
                             <br>
                             <input type="radio" name="wyn" value="no">No, I haven't!<br>
                             <div id="nw" class="hide">
-                                <label>Select day this week you want to start watering this plant:</label>
-                                <select type="select" name="wsd" id="nwday">
+                                <label style="color: rgb(1, 127, 0); text-transform: lowercase;">Select day this week you want to start watering this plant:</label>
+                                <select style="color: rgb(0, 0, 255); text-transform: lowercase;" type="select" name="wsd" id="nwday">
                                     <option disabled selected value> -- Select Day -- </option>
                                     <?php
                     for ( $xt = 0; $xt <7 ; $xt++ ){
@@ -90,9 +89,9 @@ include ('classes/succulent.class.php');
                             <label for="photo">Upload a profile picture of your plant!</label>
                             <input type="file" name="photo" required>
                             <br></div>
-                        <input type="submit" class="addBtn" value="Submit">
+                        <input type="submit" class="cbtn edit-btn mt-5" value="Submit">
                     </form>
-
+                </div>
                     <!-- end of form -->
                 </div>
             </div>
@@ -102,20 +101,20 @@ include ('classes/succulent.class.php');
 
 
 
-            <!-- SUCCULENT CHOICE 
+            <!-- SUCCULENT CHOICE
 
 <div class="col-md-6">
     <div id="addnewSucculent" class="addBtn">Add a Succulent!</div>
          <div id="sForm">
             <form method="post" action="dhAddSucculent.php" enctype="multipart/form-data">
-           
+
                 <p class="d-block display-5 text-center">Name your Succulent!</p>
                 <input class="form-contro display-5 text-center font-italics" required placeholder="Def" type="text" id="askSucculentName" name="pnn">
                 <div id="searchbarSucculent" class="hide">
                     <input id="scn" type="text" class="plantlist text-center form-contro" required name="plantvarietyS" list="sList" placeholder="Find Your Succulent!">
                     <datalist id="sList"></datalist>
-            
-       
+
+
     <div id="ifSucculent" class="container">
         <h4 class>Have you watered your <span class= text-center font-weight-bold" id="spnnDisplay"></span> succulent in the past 21 days?</h4>
             <input type="radio" name="wyn" value="yes">Yes, I have!<br>

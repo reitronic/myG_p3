@@ -1,47 +1,23 @@
-<div class="container">
-<div class="name-tag">
-<h3 id="intro-name">'.$_SESSION['pnn'].'! </h3>
-</div>
-<div class="container">
-<div class="row">
-<div class="col">
-
-<img src="'.$_SESSION['img'].'" class="plant-prof">
-</div>
-<div class="col">
-<ul class="list-group list-group-flush">
-<li class="list-group-item"><span class="des-label">Next Watering Date On:<br></span >'.$_SESSION['nwd'].'</li>
-<li class="list-group-item"><span class="des-label">Plant Variety:</span ><br> '.$_SESSION['pv'].'</li>
-<li class="list-group-item"><span class="des-label">Plant Type:</span><br> Foliage</li>
-<li class="list-group-item"><span class="des-label">Date Added:</span><br> '.$_SESSION['addedOn'].'
 
 
-</ul>
-<a id="ud" href="plantEdit.php?'.$_SESSION['uid'].'"><div class="text-center update-btn">Edit '.$_SESSION['pnn'].'</div></a>
+<!-- with forms -->
+<img class="plant-prof-pic plant-prof float-none float-md-right" src="${img}">
+                            <form method="post" enctype="multipart/form-data">
+                                <input type="hidden" name="plantid" value="${plantid}">
+                                <input type="hidden" name="pnn" value="${pnn}">
+                                <input type="hidden" name="ontime" value=false>
+                                <input type="submit" name="submit" value="Water ${pnn}" onclick="waterThisNow()" class="odbtn">
+                            </form>
+
+<!--  -->
 
 
-<button type="button" class="delete-btn" data-toggle="modal" data-target="#deleteplant'.$_SESSION['uid'].'">
-Delete '.$_SESSION['pnn'].'
-</button>
-<div class="modal fade" id="deleteplant'.$_SESSION['uid'].'" tabindex="-1" role="dialog" aria-labelledby="deleteplantLabel'.$_SESSION['uid'].'" aria-hidden="true">
-<div class="modal-dialog" role="document">
-<div class="modal-content">
-<div class="modal-header">
-<h5 class="modal-title" id="deleteplantLabel'.$_SESSION['uid'].'">Delete?</h5>
-<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-<span class aria-hidden="true">&times;</span >
-</button>
-</div>
-<div class="modal-body">
-Are you sure you want to delete this plant?
-</div>
-<div class="modal-footer">
-<a href="allFoliage.php" class="n-btn">Nah</a>
-<a href="dhFoliageDelete.php?'.$_SESSION['uid'].'" class="delete-btn">Yes, delete!</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>'
+
+<div class="dl mb-md-5" id="' + plantid + '">
+        <form method="post" enctype="multipart/form-data">
+            <input type="hidden" name="plantid" value="${plantid}">
+            <input type="hidden" name="pnn" value="${pnn}">
+            <input type="hidden" name="ontime" value=false>
+            <input type="submit" name="submit" value="Water ${pnn}" onclick="waterThisNow()" class="odbtn">
+        </form>
+          <img class="plant-prof-pic plant-prof float-none float-md-right" src="${img}">

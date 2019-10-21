@@ -31,56 +31,58 @@ $(document).ready(function () {
                     var todayUD = todayDate.setHours(0, 0, 0, 0);
                     if ((lwdUD < todayUD || lwd == '') && nwdUD == todayUD) {
                         $('#todayDisplay').append(
-                            '<div class="dl mt-4 mb-5" id="' + plantid + '"></div>');
+                            '<div class="dl" id="' + plantid + '"></div>');
                         $('#' + plantid + '').append(
                             `
-                            <img class="plant-prof-pic plant-prof float-none float-md-right" src="${img}">
+                            <div class="img" style="background-image:
+                            url('${img}')"></div>
                             <form method="post" enctype="multipart/form-data">
                                 <input type="hidden" name="plantid" value="${plantid}">
                                 <input type="hidden" name="pnn" value="${pnn}">
                                 <input type="hidden" name="ontime" value=false>
-                                <input type="submit" name="submit" value="Water ${pnn}" onclick="waterThisNow()" class="odbtn">
+                                <input type="submit" name="submit" value="Water ${pnn}" class="odbtn">
                             </form>`
                         );
                     } else if (lwdUD == todayUD) { //then this is completed today
-                        $('#todayCompletedDisplay').append('<div class="dl mt-4 mb-5" id="' + plantid + '"></div>');
+                        $('#todayCompletedDisplay').append('<div class="dl" id="' + plantid + '"></div>');
                         $('#' + plantid + '').append(
                             `
-                            <img class="plant-prof-pic plant-prof float-none float-md-right" src="${img}">
+                            <div class="img" style="background-image:
+                            url('${img}')"></div>
                             <div class="pcd">
                             <p class="emph">${pnn}</p>
-                            <p class="des-label">Next Watering Date:<br>
-                            <span class="des-out"> ${nwd}</span></p>
-                            </div>`
+                                    <p>Next Watering Date:<br>
+                                        <span class="output"> ${nwd}</span></p></div>`
                         );
                     } else if (nwdUD < todayUD) { //then this is past due
-                        $('#pastDueDisplay').append('<div class="dl mt-4 mb-5" id="' + plantid + '"></div>');
+                        $('#pastDueDisplay').append('<div class="dl" id="' + plantid + '"></div>');
                         $('#' + plantid + '').append(
-                            `<img class="plant-prof-pic plant-prof float-none float-md-right" src="${img}">
+                            `<div class="img" style="background-image: url('${img}')"></div>
                             <form method="post" enctype="multipart/form-data">
                                 <input type="hidden" name="plantid" value="${plantid}">
                                 <input type="hidden" name="pnn" value="${pnn}">
                                 <input type="hidden" name="ontime" value=false>
-                                <input type="submit" name="submit" value="Water ${pnn}" onclick="waterThisNow()" id="pdpw" class="odbtn"><i class="fas fa-check hide"></i>
+                                <input type="submit" name="submit" value="Water ${pnn}" id="pdpw" class="odbtn">
                             </form>`
                         );
                     } else if ((lwdUD <= todayUD || lwd == '') && nwdUD > todayUD) {
                         //upcoming plants to water / have watered already
-                        $('#upcomingDisplay').append('<div class="dl mt-4 mb-5" id="' + plantid + '"></div>');
+                        $('#upcomingDisplay').append('<div class="dl" id="' + plantid + '"></div>');
                         $('#' + plantid + '').append(
-                            `<img class="plant-prof-pic plant-prof float-none float-md-right" src="${img}">
+                            `<div class="img" style="background-image:
+                            url('${img}')"></div>
                             <div class="pcd">
                             <p class="emph">${pnn}</p>
-                                    <p class="des-label">Next Watering Date:
-                                        <span class="des-out"> ${nwd}</span></p></div>`
+                                    <p>Next Watering Date:
+                                        <span class="output"> ${nwd}</span></p></div>`
                         );
                     };
-                    waterThisNow();
+                    // waterThisNow();
                 })
             } //end of success call
         })//end of ajax displaydashboard
     }
-    displayDashboard();
+    displayDashboard(waterThisNow);
 
     function waterThisNow() {
         $('form').submit(function (e) {

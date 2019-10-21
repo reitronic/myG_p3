@@ -1,7 +1,7 @@
-$('document').ready(function(){
-    $('#addnewfoliage').on('click', function () {
-        $('#addnewfoliage .addBtn').hide();
-        $('#fForm').toggle();
+$(document).ready(function(){
+    $('#anf.add-btn').on('click', function () {
+        // $('#anf .add-btn').hide();
+        $('#f-form').toggle();
         $.ajax({
             url: 'ptList.json',
             type: 'GET',
@@ -22,27 +22,27 @@ $('document').ready(function(){
                 }
             } //end of success
         });//end ajax
-        $('input:radio').click(function () { 
+        $('input:radio').click(function () {
         if ($(this).val() != 'yes') {
             $('#yw').css('display', 'none');
             $('#nw').css('display', 'block');
-        } else { 
+        } else {
             $('#yw').css('display', 'block');
             $('#nw').css('display', 'none');
         }
     });
 
-        
+
     });
 });
 
 
-/* 
+/*
 // SUCCULENT PLANT TYPE ASK
    $('button#addnewSucculent').on('click', function(){
         $('#askSucculentName').change(function(){
             $('#searchbarSucculent').show();
-        
+
         $.ajax({
             url: 'ptList.json',
 			type: 'GET',

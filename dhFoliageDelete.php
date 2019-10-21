@@ -17,12 +17,7 @@ unset($plantdata[$plantid]);
 $plantdata = json_encode($plantdata);
 file_put_contents('anitaAllFoliage.json', $plantdata);
 
-// if($_SESSION['plantid'] == $plantid){
-//     session_destroy();
-//     header('dhFoliageDelete.php');
-// } else {
-//     header('location:allFoliage.php');
-// };
+
 if($_SESSION['plantid'] == $plantid){
     session_destroy();
     header('location:allFoliage.php');

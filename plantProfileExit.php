@@ -1,7 +1,9 @@
 <?php session_start();
 
+// echo $_SERVER['HTTP_REFERER'];
 
-unset($_SESSION['uid']);
+// var_dump($_SERVER['HTTP_REFERER']);
+session_destroy();
 
-header('location:index.php');
+header('location:allFoliage.php');
 ?>

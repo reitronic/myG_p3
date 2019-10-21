@@ -1,25 +1,48 @@
-@import url('https://fonts.googleapis.com/css?family=Cambay:400,400i,700|Cormorant+Infant:300,300i,400,400i&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i&display=swap');
-/* descriptions/body >> font-family: 'Cambay', sans-serif;*/
-/* headings and titles >> font-family: 'Montserrat', sans-serif; */
+/*
+FONTS:
+font-family: 'Greiskale-Regular', sans-serif;  DISPLAY FONT/CUSTOM
+font-family: 'Kanit', sans-serif; 500,500i,800,800i,900,900i REG TEXT-CONTENT
+*/
 
-/* green- dark : rgb(10, 96, 46); 0A602E*/
-/* green- lite : rgb(32, 160, 56); 	20A038*/
-/* blue : rgb(8, 110, 219);  	086EDB*/
-/* yello: rgb(255, 252, 36); 	FFFC24*/
-/* grey-white: rgb(228, 229, 221) ; #E4E5DD*/
+/*
+COLORS:
+Dark green: #0D3F00; rgb(13, 63, 0);
+Light green: #027F00; rgb(1, 127, 0);
+Blue: #0000FF; rgb(0, 0, 255);
+Red: #FF0000; rgb(255, 0, 0);
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Kanit:500,500i,800,800i,900,900i&display=swap');
+
+
+@font-face {
+    /* MY CUSTOM FONT  ^_^  */
+    font-family: "Greiskale-Regular", sans-serif;
+    src: url('fonts/Greiskale-Regular.eot'); /* IE9 Compat Modes */
+    src: url('fonts/Greiskale-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      url('fonts/Greiskale-Regular.otf') format('opentype'), /* Open Type Font */
+      url('fonts/Greiskale-Regular.svg') format('svg'), /* Legacy iOS */
+      url('fonts/Greiskale-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+      url('fonts/Greiskale-Regular.woff') format('woff'), /* Modern Browsers */
+      url('fonts/Greiskale-Regular.woff2') format('woff2'); /* Modern Browsers */
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 
 .todaydate{
     font-size: 2em;
 }
 
-/* above are old classes -- look thru before delete */
+
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Cambay', sans-serif;
+    font-family: 'Kanit', sans-serif;
+    text-transform: uppercase;
 }
 
 html,
@@ -37,10 +60,9 @@ h2,
 h3,
 h4,
 h5 {
-    font-family: 'Montserrat', sans-serif;
-    letter-spacing: .2rem;
+    font-family: 'Greiskale-Regular', sans-serif;
     text-transform: uppercase;
-    color: rgb(10, 96, 46);
+    color: rgb(1, 127, 0);
 }
 
 a {
@@ -51,113 +73,226 @@ a {
     display: none;
 }
 
+.all {
+    color: rgb(233, 236, 239);
+    text-shadow: -2px 2px 2px rgb(13, 63, 0), 2px -2px 5px rgba(13, 63, 0, 1), 2px 3px 4px rgba(13, 63, 0, 1);
+}
+
 .dheader {
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: rgb(10, 96, 46);
+    font-size: 2rem;
+    font-style: italic;
+    font-family: 'Greiskale-Regular', sans-serif;
     text-align: center;
-    background-color: rgba(10, 96, 46, 0.5);
-    margin-bottom: 20px;
+    margin-top: 80px;
 }
 
-.dheader:hover {
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: #E4E5DD;
-    text-align: center;
-    background-color: rgb(10, 96, 46);
-    margin-bottom: 20px;
+#t.dheader{
+color: rgb(0, 0, 255);
 }
 
-.container-fluid{
+#pd.dheader{
+    color: rgb(255, 0, 0);
+}
+#ct.dheader{
+    color: rgb(1, 127, 0);
+}
+#jc.dheader{
+    color: rgb(13, 63, 0);
+}
+/* DASHBOARD CONTIANER DISPLAYS */
+#todayDisplay.container{
+    /* border-top: 10px solid rgb(0, 0, 255); */
+}
+#pastDueDisplay.container{
+    /* box-shadow: 3px 10px 20px 11px rgb(255, 0, 0); */
+}
+
+#todayCompletedDisplay.container{
+    /* box-shadow: 3px 10px 20px 11px rgb(1, 127, 0); */
+}
+
+#upcomingDisplay.container{
+    /* box-shadow: 3px 10px 20px 11px rgb(13, 63, 0); */
+}
+
+
+
+/*
+FONTS:
+font-family: 'Greiskale-Regular', sans-serif;  DISPLAY FONT/CUSTOM
+font-family: 'Kanit', sans-serif; 500,500i,800,800i,900,900i REG TEXT-CONTENT
+*/
+
+/*
+COLORS:
+Dark green: #0D3F00; rgb(13, 63, 0);
+Light green: #027F00; rgb(1, 127, 0);
+Blue: #0000FF; rgb(0, 0, 255);
+Red: #FF0000; rgb(255, 0, 0);
+rgb(233,236,239);
+*/
+
+
+.row, .container-fluid{
     padding: 0;
-}
-/* ADD NEW PG */
-#addnewfoliage {
-    margin: 0 auto;
+    margin: 0;
 }
 
-.formLine {
-    font-style: bold;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 20px;
+
+form {
+    font-style: italic;
+    width: 300px;
+    /* align-self: center; */
+}
+
+#f-form {
+    margin-top: 50px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 input[type="text"], input[type="file"] {
-    width: 100%;
-    font-style: italic;
+    color: rgba(1, 127, 0, 0.7);
+    border: rgb(1, 127, 0) solid 4px;
     text-align: center;
-    vertical-align: center;
-    padding-top: 10px;
-    margin-bottom: 10px;
-    border-style: inset;
-    border-color: rgba(32, 134, 75, 0.7);
+    outline: none;
+    width: 100%;
+    padding: 8px;
+    cursor: pointer;
+    text-transform: lowercase;
+    font-style: italic;
 }
 
-input[type="file"]{
-    cursor: pointer;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-}
+/* form + .d-modal {
+    width: 100%;
+    display: inline-block;
+    margin: 0;
+} */
 
 input[type="radio"] {
     text-align: center;
     padding-bottom: 20px;
 }
 
-.des-label {
-    font-style: italic;
+
+/*
+FONTS:
+font-family: 'Greiskale-Regular', sans-serif;  DISPLAY FONT/CUSTOM
+font-family: 'Kanit', sans-serif; 500,500i,800,800i,900,900i REG TEXT-CONTENT
+*/
+
+/*
+COLORS:
+Dark green: #0D3F00; rgb(13, 63, 0);
+Light green: #027F00; rgb(1, 127, 0);
+Blue: #0000FF; rgb(0, 0, 255);
+Red: #FF0000; rgb(255, 0, 0);
+grey-white:rgb(233,236,239);
+*/
+
+.tag{
+    color: rgb(255, 0, 0);
+    transform: rotate(-20deg);
+    font-family: 'Greiskale-Regular', sans-serif;
 }
 
-.addBtn {
-    display: table-cell;
+h3.tag{
+    font-size: 80px;
+    position: absolute;
+    top: 130px;
+    z-index: 5;
+    right: 0px;
+}
+
+h6.tag {
+    position: absolute;
+    bottom: 25px;
+    right: 6px;
+    z-index: 4;
+    font-size: 20px;
+    text-align: left;
+    transform: rotate(-5deg);
+}
+
+#anf {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    display: block;
+    height: 200px;
+    width: 300px;
+    outline: none;
+    text-decoration: none;
     cursor: pointer;
-    height: 150px;
-    width: 250px;
-    background-color: rgb(32, 134, 75);
-    border-radius: 15px;
-    font-size: 2rem;
-    vertical-align:middle;
-    text-align:center;
-    margin: 10px;
-    color: whitesmoke;
 }
 
-.addBtn:hover{
-    background-color: whitesmoke;
-    border: 5px solid  rgb(32, 134, 75);
-    color:  rgb(32, 134, 75);
+.add-btn {
+    position: relative;
+    z-index: 2;
+    background-image: url(../img/hellotag.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    outline: none;
+    text-decoration: none;
+    cursor: pointer;
 }
 
+.add-btn-tag {
+    position: absolute;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    font-family: 'Greiskale-Regular', sans-serif;
+    color: rgb(255, 0, 0);
+    font-size: 200%;
+    z-index: 3;
+    transform: rotate(-15deg)
+}
+
+/* .add-btn:hover{
+
+} */
+/*
+FONTS:
+font-family: 'Greiskale-Regular', sans-serif;  DISPLAY FONT/CUSTOM
+font-family: 'Kanit', sans-serif; 500,500i,800,800i,900,900i REG TEXT-CONTENT
+*/
+
+/*
+COLORS:
+Dark green: #0D3F00; rgb(13, 63, 0);
+Light green: #027F00; rgb(1, 127, 0);
+Blue: #0000FF; rgb(0, 0, 255);
+Red: #FF0000; rgb(255, 0, 0);
+rgb(233,236,239);
+*/
 /* ALL PLANTS */
 .counter {
-    font-size: 1.7rem;
-    color: rgb(10, 96, 46);
+    font-size: 1.2rem;
+    color: rgb(1, 127, 0);
+    text-shadow: none;
 }
 
 .plantEach {
     width: 20rem;
 }
 
-.plant-prof {
-    width: 300px;
-    height: 300px;
-    background-size: contain;
-    background-position: center;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
+.row, .container-fluid {
+    margin: 0;
+    padding: 0;
 }
 
-
-input.update-btn, div.update-btn {
-    background-color:rgb(32, 134, 75);
-    color:  whitesmoke;
-    padding: 4px;
-    width: 100%;
+.list-group-item{
+    position: relative;
+    display: block;
+    padding: .75rem 0;
+    margin-bottom: -1px;
+    background-color: #fff;
+    width: 300px;
     border: none;
-    text-decoration: none;
 }
 
 .edit-btn {
@@ -177,88 +312,188 @@ input.update-btn, div.update-btn {
     text-decoration: none;
 }
 
-a#ud .update-btn:hover {
-    background-color:rgba(32, 134, 75, 0.5); 
-    color:rgb(32, 134, 75); 
+
+/*
+FONTS:
+font-family: 'Greiskale-Regular', sans-serif;  DISPLAY FONT/CUSTOM
+font-family: 'Kanit', sans-serif; 500,500i,800,800i,900,900i REG TEXT-CONTENT
+*/
+
+/*
+COLORS:
+Dark green: #0D3F00; rgb(13, 63, 0);
+Light green: #027F00; rgb(1, 127, 0);
+Blue: #0000FF; rgb(0, 0, 255);
+Red: #FF0000; rgb(255, 0, 0);
+rgb(233,236,239);
+*/
+
+
+.update-confirm-btn {
+    background-color:rgb(0, 0, 255);
+    color: #fff;
     padding: 4px;
     width: 100%;
-    border: none;
+}
+
+.update-confirm-btn:hover {
+    background-color:#fff;
+    color:rgb(0, 0, 255);
+    outline: none;
     text-decoration: none;
 }
 
-input.update-btn:hover{
-    background-color:rgba(32, 134, 75, 0.5); 
-    color:rgb(32, 134, 75); 
+.update-btn {
+    background-color:rgb(13, 63, 0);
+    color: #fff;
     padding: 4px;
     width: 100%;
-    border: none;
+}
+
+a#ud{
+    width: 300px;
+    height: 53px;
+    display: block;
+    margin: 0 auto;
+}
+
+a#ud.update-btn:hover, input.update-btn:hover, .update-btn:hover {
+    background-color:rgb(0, 0, 255);
+    color:#fff;
+    outline: none;
     text-decoration: none;
 }
+
 
 a.updateMsg {
     font-size: 2rem;
     color:rgb(32, 134, 75);
     text-align: center;
 }
+/*
+FONTS:
+font-family: 'Greiskale-Regular', sans-serif;  DISPLAY FONT/CUSTOM
+font-family: 'Kanit', sans-serif; 500,500i,800,800i,900,900i REG TEXT-CONTENT
+*/
 
-.n-btn {
+/*
+COLORS:
+Dark green: #0D3F00; rgb(13, 63, 0);
+Light green: #027F00; rgb(1, 127, 0);
+Blue: #0000FF; rgb(0, 0, 255);
+Red: #FF0000; rgb(255, 0, 0);
+rgb(233,236,239);
+*/
+
+.cbtn {
+    cursor: pointer;
+    width: 100%;
+    padding: 4px;
+    text-align: center;
     text-decoration: none;
-    color: #000;
+    border: none;
+    outline: none;
+    font-size: 30px;
+    font-style: italic;
+    text-transform: uppercase;
 }
-.n-btn:hover {
-    color: rgb(32, 134, 75);
-    text-decoration: none;
+
+.d-modal {
+    width: 300px;
+    display: block;
+    /* margin: 0 auto; */
 }
+
 
 .delete-btn {
-    background-color:rgb(248, 246, 121);
-    color: rgb(32, 134, 75);
-    padding: 4px;
-    width: 100%;
-    text-align: center;
+    background-color:rgb(1, 127, 0);
+    color:#fff;
+    text-decoration: none;
     margin-top: 10px;
 }
 
-.delete-btn:hover, a.delete-btn:hover {
-    background-color:rgba(248, 246, 121, 0.5);
-    color:  rgba(32, 134, 75, 0.5);
-    padding: 4px;
-    text-align: center;
+.delete-btn:hover, a.cbtn.delete-btn:hover {
+    background-color:rgb(255, 0, 0);
+    color: #fff;
     text-decoration: none;
 }
 
-.navbar-light .navbar-nav .nav-link {
-    color: rgb(32, 134, 75);
-    cursor: pointer;
-    text-transform: uppercase;
+.delete-confirm-btn {
+    background-color:rgb(255, 0, 0);
+    color: #fff;
+    text-decoration: none;
 }
 
-.navbar-light .navbar-nav .nav-link:hover {
-    color: rgba(32, 134, 75, 0.5);
-    cursor: pointer;
-    text-transform: uppercase;
+a.cbtn.delete-confirm-btn:hover {
+    background-color: #fff;
+    color: rgb(255, 0, 0);
+    text-decoration: none;
 }
 
+.navbar-toggler-icon {
+    /* background-color: black; */
+    width: 200px;
+    height: 200px;
+    background-image: url(../img/minlogo.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
+.navbar-brand {
+    display: none;
+}
 
+a.nav-item.nav-link.all{
+    font-family: 'Greiskale-Regular', sans-serif;
+    padding: 10px;
+    margin: 10px;
+    font-size: 30px;
+}
 
-.odbtn {
-    background-color: rgb(8, 110, 219);
+.navbar-toggler {
+    padding: .25rem .75rem;
+    background-color: transparent;
     border: none;
-    color: rgb(228, 229, 221);
-    width: 100%;
-    height: 80px;
-    cursor: pointer;
-    border-radius: 0;
+    margin: 0 auto;
+    outline: none;
 }
 
-.odbtn:hover {
-    background-color: rgba(8, 110, 219, 0.5);
-    border: none;
-    color:rgb(8, 110, 219); 
+a.nav-item.nav-link.all:hover{
+    color: rgb(1, 127, 0);
+    text-shadow: -2px 2px 2px rgba(0, 0, 0, 0.5), 2px -2px 5px rgba(13, 63, 0, 0.2), 2px 3px 4px rgba(13, 63, 0, 0.1);
+}
+
+
+/*
+FONTS:
+font-family: 'Greiskale-Regular', sans-serif;  DISPLAY FONT/CUSTOM
+font-family: 'Kanit', sans-serif; 500,500i,800,800i,900,900i REG TEXT-CONTENT
+*/
+
+/*
+COLORS:
+Dark green: #0D3F00; rgb(13, 63, 0);
+Light green: #027F00; rgb(1, 127, 0);
+Blue: #0000FF; rgb(0, 0, 255);
+Red: #FF0000; rgb(255, 0, 0);
+*/
+
+
+img{
+    object-fit: cover;
+}
+
+.notice {
+    position: relative;
+    padding: 5%;
+    font-size: 1.5rem;
+    font-family: 'Greiskale-Regular', sans-serif;
+    display: block;
+    margin: 0 auto;
     width: 100%;
-    cursor: pointer;
-    border-radius: 0;
+    z-index: 11;
+    text-align: center;
 }
 
 .update-msg {
@@ -268,24 +503,44 @@ a.updateMsg {
     text-transform: uppercase;
 }
 
-.plant-pic{
-    width: 250px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-}
-
-.card {
-    border: rgb(32, 160, 56) 1px solid;
-    text-align: center;
-    border-radius: 0;
-    width: 250px;
-}
-
 .emph {
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
+    letter-spacing: 0.1rem;
 }
+
+
+
+.ap-card {
+    width: 330px;
+    height: 530px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dl {
+    position: relative;
+    width: 330px;
+    height: 330px;
+    display: flex;
+    flex-direction: column;
+}
+
+a.ap-card .plant-prof:hover {
+    outline: none;
+    text-decoration: none;
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+.ap-card .plant-prof{
+    margin-top: -4px;
+    opacity: 0.5;
+    transform: rotate(-10deg);
+}
+
+/* Profile Pages (unique + editpgs */
 
 .name-tag {
     position: relative;
@@ -296,14 +551,179 @@ a.updateMsg {
     background-size: contain;
     background-repeat: no-repeat;
     margin: 0 auto;
+    display: block;
 }
 
-#intro-name {
+.name-tag-name {
     position: absolute;
-    left: 0;
-    top: 45%;
+    z-index: 2;
+    top: 30%;
     width: 100%;
     text-align: center;
-    z-index: 2;
-    
+    font-family: 'Greiskale-Regular', sans-serif;
+    color: rgb(1, 127, 0);
+    font-size: 40px;
+    line-height: 0.9;
 }
+
+#mpp.name-tag-name{
+    top: 45%;
+}
+
+.plant-card {
+    position: relative;
+    z-index: -4;
+    width: 350px;
+    height: 500px;
+    background-color: transparent;
+    padding: 2px;
+
+}
+
+.plant-prof {
+    background-color: transparent;
+    border: 15px solid #e9ecef;
+    box-shadow: 1px 5px 9px 4px grey;
+    transform: rotate(-10deg);
+}
+
+img.plant-prof-pic {
+    width: 250px;
+    height: 250px;
+}
+
+
+.des-out{
+    font-family: 'Greiskale-Regular', sans-serif;
+    font-size: 1.2rem;
+}
+
+
+
+
+/*
+FONTS:
+font-family: 'Greiskale-Regular', sans-serif;  DISPLAY FONT/CUSTOM
+font-family: 'Kanit', sans-serif; 500,500i,800,800i,900,900i REG TEXT-CONTENT
+*/
+
+/*
+COLORS:
+Dark green: #0D3F00; rgb(13, 63, 0);
+Light green: #027F00; rgb(1, 127, 0);
+Blue: #0000FF; rgb(0, 0, 255);
+Red: #FF0000; rgb(255, 0, 0);
+rgb(233,236,239);
+*/
+
+
+
+/* Dashboard plant cards */
+
+/* .dl = each card */
+
+
+.img {
+    position: absolute;
+    top: 0;
+    display: block;
+    width: 290px;
+    height: 290px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -2;
+ }
+
+
+
+/* plant card details*/
+.pcd {
+    position: absolute;
+    display: block;
+    height: 90px;
+    top: 210px;
+    width: 330px;
+    outline: none;
+    cursor: pointer;
+    font-style: italic;
+    text-align: right;
+    outline: none;
+    color: #000;
+    z-index: 4;
+}
+
+.pcd .emph{
+    text-align: right;
+    font-size: 2.4rem;
+    font-family: 'Greiskale-Regular', sans-serif;
+    margin-bottom: 3px;
+}
+/*
+FONTS:
+font-family: 'Greiskale-Regular', sans-serif;  DISPLAY FONT/CUSTOM
+font-family: 'Kanit', sans-serif; 500,500i,800,800i,900,900i REG TEXT-CONTENT
+*/
+
+/*
+COLORS:
+Dark green: #0D3F00; rgb(13, 63, 0);
+Light green: #027F00; rgb(1, 127, 0);
+Blue: #0000FF; rgb(0, 0, 255);
+Red: #FF0000; rgb(255, 0, 0);
+w: rgb(233,236,239);
+*/
+
+
+.odbtn {
+    position: absolute;
+    /* display: block; */
+    background-color: rgb(233,236,239);
+    border: 10px solid  rgba(8, 110, 219, 1);
+    color:  rgba(8, 110, 219, 1);
+    width: 330px;
+    height: 70px;
+    top: 210px;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    z-index: 4;
+    font-weight: 800;
+    font-style: italic;
+}
+
+.odbtn:hover {
+   text-decoration: line-through;
+   text-decoration-style: double;
+   text-decoration-color: rgb(255, 0, 0);
+   background-color: rgba(233,236,239, 0.5);
+}
+
+.odbtn:active {
+   text-decoration: line-through;
+   text-decoration-style: double;
+   text-decoration-color: rgb(255, 0, 0);
+
+}
+
+#pdpw.odbtn{
+    background-color: rgb(233,236,239);
+    border: 10px solid rgb(255, 0, 0);
+    color: rgb(255, 0, 0);
+}
+
+#pdpw.odbtn:hover {
+    text-decoration: line-through;
+    text-decoration-style: double;
+    text-decoration-color: rgb(255, 0, 0);
+    background-color: rgba(233,236,239, 0.5);
+}
+
+#pdpw.odbtn:active {
+    text-decoration: line-through;
+    text-decoration-style: double;
+    text-decoration-color: rgb(255, 0, 0);
+}
+
+
+

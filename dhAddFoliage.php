@@ -8,7 +8,7 @@ $plantdata = json_decode( $plantdata, true );
 //post = ["pnn"]=> string(5) "Bjork" ["plantvarietyF"]=> string(10) "Corn Plant" ["wyn"]=> string(2) "no" ["wsd"]=> string(14) "Wed 10/02/2019"
 
 
-$index= count( $plantdata );
+$index = count( $plantdata );
 
 $index++;
 

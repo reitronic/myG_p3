@@ -12,9 +12,8 @@ include 'classes/succulent.class.php';
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
   <link rel="stylesheet" type="text/css" href="assets/style/style.css">
-    <title>"My G"reens</title>
+    <title>"My G"reens || Best Plant Planner Bud</title>
 </head>
 <body>
 <header>
@@ -22,59 +21,107 @@ include 'classes/succulent.class.php';
 </header>
 <!-- END HEADER -->
 <!-- PLANT PROFILE -->
+
+<!-- "My G"reens || Best Plant Planner Bud -->
+
+<div class="container-fluid">
   <?php
 
-  $_SESSION['plantid'] == $_REQUEST['QUERY_STRING'];
-    echo '<div class="container">
-    <div class="name-tag">
-      <h3 id="intro-name">'.$_SESSION['pnn'].'! </h3>
-      </div>
-        <div class="container">
+
+if(isset($_SERVER['QUERY_STRING'])){
+    $_SESSION['plantid'] = $_SERVER['QUERY_STRING'];
+    $plantid = $_SERVER['QUERY_STRING'];
+    $plantdata = file_get_contents("anitaAllFoliage.json");
+    $plantdata = json_decode($plantdata, true);
+    $_SESSION['pnn'] = $plantdata[$plantid]['pnn'];
+    $_SESSION['img'] = $img = $plantdata[$plantid]['img'];
+    $_SESSION['pv'] = $pv = $plantdata[$plantid]['pv'];
+    $_SESSION['lwd'] = $lwd = $plantdata[$plantid]['lwd'];
+    $_SESSION['nwd'] = $nwd = $plantdata[$plantid]['nwd'];
+    $_SESSION['addedOn'] = $addedOn = $plantdata[$plantid]['addedOn'];
+    $_SESSION['plantid'] = $plantid;
+};
+
+  echo '
+
+    <div class="name-tag mb-5 mb-md-0">
+        <div id="mpp" class="name-tag-name">'.$_SESSION['pnn'].'!</div>
+    </div>
+</div>
+
+
+
+
+<div class="container-fluid mt-md-5">
+    <div class="row">
+        <div class="col text-center">
+            <img class="plant-prof-pic plant-prof float-none float-md-right" src="'.$_SESSION['img'].'">
+        </div>
+        <div class="col-md-6 d-flex flex-column align-items-center align-items-md-start">
+            <ul class="list-group mt-3">
+                <li class="list-group-item">
+                    <span class="des-label">Next Watering Date On:<br></span>
+                    <span class="des-out">'.$_SESSION['nwd'].'</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="des-label">Last Watered On:<br></span>
+                    <span class="des-out">'.$_SESSION['lwd'].'</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="des-label">Plant Variety:</span><br>
+                    <span class="des-out">'.$_SESSION['pv'].'</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="des-label">Plant Type:</span><br>
+                    <span class="des-out">Foliage</span>
+                </li>
+                <li class="list-group-item">
+                    <span class="des-label">Date Added:</span><br>
+                    <span class="des-out">'.$_SESSION['addedOn'].'</span>
+                </li>
+            </ul>
+        </div>
+        </div>
         <div class="row">
-            <div class="col">
-        
-          <img src="'.$_SESSION['img'].'" class="plant-prof">
-            </div>
-            <div class="col">
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item"><span class="des-label">Next Watering Date On:<br></span >'.$_SESSION['nwd'].'</li>
-                  <li class="list-group-item"><span class="des-label">Plant Variety:</span ><br> '.$_SESSION['pv'].'</li>
-                  <li class="list-group-item"><span class="des-label">Plant Type:</span><br> Foliage</li>
-                  <li class="list-group-item"><span class="des-label">Date Added:</span><br> '.$_SESSION['addedOn'].'
+        <div class="col">
 
-                  
-                </ul>
-                <a id="ud" href="plantEdit.php?'.$_SESSION['plantid'].'"><div class="text-center update-btn">Edit '.$_SESSION['pnn'].'</div></a>
-         
-              
-              <button type="button" class="delete-btn" data-toggle="modal" data-target="#deleteplant'.$_SESSION['plantid'].'">
-              Delete '.$_SESSION['pnn'].'
-              </button>
-              <div class="modal fade" id="deleteplant'.$_SESSION['plantid'].'" tabindex="-1" role="dialog" aria-labelledby="deleteplantLabel'.$_SESSION['plantid'].'" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="deleteplantLabel'.$_SESSION['plantid'].'">Delete?</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span class aria-hidden="true">&times;</span >
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    Are you sure you want to delete this plant?
-                  </div>
-                  <div class="modal-footer">
-                    <a href="allFoliage.php" class="n-btn">Nah</a>
-                    <a href="dhFoliageDelete.php?'.$_SESSION['plantid'].'" class="delete-btn">Yes, delete!</a>
-                  </div>
+                <a id="ud" class="cbtn update-btn mt-md-4" href="plantEdit.php?'.$_SESSION['plantid'].'">Edit
+                    '.$_SESSION['pnn'].'</a>
+                <div class="d-modal mx-auto mt-auto">
+                    <button type="button" class="cbtn delete-btn" data-toggle="modal"
+                            data-target="#deleteplant'.$_SESSION['plantid'].'">Delete '.$_SESSION['pnn'].'</button>
+                    <div class="modal fade" id="deleteplant'.$_SESSION['plantid'].'" tabindex="-1" role="dialog"
+                         aria-labelledby="deleteplantLabel'.$_SESSION['plantid'].'" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="deleteplantLabel'.$_SESSION['plantid'].'">Delete this
+                                        plant?</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span class aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Are you sure you want to delete this plant?
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="allFoliage.php" class="cbtn update-confirm-btn">Nah, keep it.</a>
+                                    <a href="dhFoliageDelete.php?'.$_SESSION['plantid'].'" class="cbtn delete-confirm-btn">Yes,
+                                        delete!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-          </div>
-          </div>';
-    ?>
-   
 
+            </div>
+        </div>'
+    ;
+
+  ?>
+
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
